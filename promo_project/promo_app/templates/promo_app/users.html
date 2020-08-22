@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- starts the django injection from static map -->
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{% static "promo_app/css/userMaster.css"%}">
+    <title>User Site</title>
+  </head>
+  <body>
+    <div class="container" align="center">
+      <div class="jumbotron">
+        <h1>This is the user site</h1><br>
+            <div align="left">
+              <h2>Please sign up here!</h2>
+              <form method="POST">
+                {{ form.as_p }}
+                {% csrf_token %}
+              <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
+      </div>
+        <form method="get" action="http://127.0.0.1:8000/">
+          <input type="submit" class="btn btn-primary" value="Back to Index">
+        </form>
+        <br>
+        <form method="get" action="http://127.0.0.1:8000/help">
+          <input type="submit" class="btn btn-primary" value="help" color="red">
+        </form>
+    </div>
+  </body>
+</html>
